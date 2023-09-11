@@ -89,6 +89,14 @@ return [
             'driver' => 'errorlog',
             'level' => 'debug',
         ],
+        'flare' => [
+            'driver' => 'flare',
+        ],
+        'stack' => [
+            'driver' => 'stack',
+            'channels' => ['daily', 'flare'],
+            'ignore_exceptions' => false,
+        ],
     ],
 
 ];
