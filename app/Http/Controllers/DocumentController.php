@@ -206,3 +206,38 @@ class DocumentController extends Controller
         ]);
     }
 }
+
+/*
+
+    The DocumentController class is a controller that handles CRUD (Create, Read, Update, Delete) operations related to documents in a Laravel application. Additionally, it provides exporting functionality for documents. Below are details of each method in this controller:
+
+    index(Request $request):
+    Lists the documents based on various filtering, sorting, and pagination parameters. It retrieves documents from the database, applies filters based on user input (search, template, favorite, sort order, etc.), and returns the view with paginated results.
+
+    create():
+    Renders the view for creating a new document.
+
+    edit(Request $request, $id):
+    Finds a specific document by ID and user ID and returns a view to edit that document. If the document is not found, it'll throw a 404 error.
+
+    show(Request $request, $id):
+    Displays a specific document. If the logged-in user is not the owner and doesn't have a required role, a 403 error is returned.
+
+    store(StoreDocumentRequest $request):
+    Utilizes the documentsStore method (presumably from the included DocumentTrait) to store a new document. If any exceptions occur, it will redirect back with an error message.
+
+    update(UpdateDocumentRequest $request, $id):
+    Updates an existing document by calling the documentUpdate method (presumably from the DocumentTrait), returning a success message. If the logged-in user is not the owner and doesn't have the required role, a 403 error is returned.
+
+    destroy(Request $request, $id):
+    Deletes a document after verifying ownership. It redirects to the documents route with a success message.
+
+    export(Request $request):
+    Exports the filtered documents as a CSV file, including details like type, name, result, words, favorite status, and timestamps. If the user does not have the 'dataExport' permission, a 403 error is returned.
+
+    use DocumentTrait:
+    This indicates that the controller makes use of a trait named DocumentTrait, which likely contains reusable methods for handling documents.
+
+    This controller efficiently leverages Laravel's built-in features such as conditional query building, request validation, and pagination. It ensures that only authenticated and authorized users can perform actions and handles various aspects of managing documents within the application, making it a central piece of the documents management functionality.
+
+*/

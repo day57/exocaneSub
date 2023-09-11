@@ -44,3 +44,26 @@ class Kernel extends ConsoleKernel
         require base_path('routes/console.php');
     }
 }
+
+
+/*
+ 
+    The given code snippet is defining Laravel's console kernel. It sets up scheduling for different Artisan commands and provides details about the custom console commands your application is offering.
+
+    Here's what's happening:
+
+    protected $commands: An array that lists the classes for the custom Artisan commands you've created. In this case, it includes the commands to clear user usages and unverified users.
+
+    protected function schedule(Schedule $schedule): This method sets up the scheduling for various console commands:
+
+    cron:clear-user-usages is scheduled to run monthly.
+    cron:clear-unverified-users is scheduled to run daily at 3:00 AM.
+    cache:clear is scheduled to run weekly on Sunday at 4:00 AM.
+    view:clear is scheduled to run weekly on Sunday at 5:00 AM.
+    auth:clear-resets is scheduled to run weekly on Sunday at 6:00 AM.
+    These scheduled commands help in automating certain maintenance tasks, such as clearing unverified users, resetting monthly user usage counters, and clearing various caches.
+
+    protected function commands(): This method registers the commands for the application. It loads all the command classes from the specified directory and also requires the console routes file.
+    Overall, this kernel class plays a crucial role in defining and scheduling console tasks for your Laravel application. It organizes and controls how these commands are loaded and when they are executed.
+
+*/

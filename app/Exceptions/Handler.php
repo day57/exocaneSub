@@ -53,3 +53,22 @@ class Handler extends ExceptionHandler
         return parent::render($request, $exception);
     }
 }
+
+
+/*
+ 
+    This code snippet is defining a custom exception handler for a Laravel application, extending Laravel's base ExceptionHandler class.
+
+    Here's what each part does:
+
+    protected $dontReport: This property defines an array of exception types that should not be logged or reported. It's currently empty, so no exceptions are being suppressed.
+
+    protected $dontFlash: This property defines a list of input fields that should never be flashed to the session. In this case, it includes 'password' and 'password_confirmation'. This is important for security as it ensures that sensitive information like passwords is not accidentally exposed.
+
+    public function report(Throwable $exception): This method is used to log or report an exception. Here, it's simply calling the parent's report method, so it's using Laravel's default behavior for reporting exceptions.
+
+    public function render($request, Throwable $exception): This method is used to convert an exception into an HTTP response that's sent back to the user. Again, it's calling the parent's render method, so it's using Laravel's default behavior for rendering exceptions.
+
+    This class could be customized further to handle specific exception types in a custom way, log additional information, etc. However, in its current state, it's mainly defining some basic configurations and relying on Laravel's built-in exception handling for the rest.
+
+*/

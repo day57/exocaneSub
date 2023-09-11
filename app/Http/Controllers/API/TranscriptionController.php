@@ -147,3 +147,49 @@ class TranscriptionController extends Controller
         ], 404);
     }
 }
+
+
+/*
+
+    Namespace and Imports
+    These are the same as the previous example, but specific to transcriptions.
+
+    TranscriptionController Class
+    It extends Laravel's base Controller class and uses a trait called TranscriptionTrait.
+
+    Methods
+    index: Lists all transcriptions.
+
+    Retrieves filters, sorting, and pagination settings from the request.
+    Searches and filters the transcriptions based on parameters like search, favorite, search_by, etc.
+    Returns a paginated response.
+    store: Stores a new transcription.
+
+    Uses a custom request class StoreTranscriptionRequest for input validation.
+    Tries to create a new transcription, catching any exceptions that occur.
+    Returns the newly created transcription or an error message.
+    show: Displays a specific transcription.
+
+    Finds a transcription matching the given id and user_id.
+    Returns the transcription or an error message if not found.
+    update: Updates a specific transcription.
+
+    Finds a transcription matching the given id and user_id.
+    Calls the transcriptionUpdate method to update the transcription.
+    Returns the updated transcription or an error message if not found.
+    destroy: Deletes a specific transcription.
+
+    Finds a transcription matching the given id and user_id.
+    Deletes the transcription if found.
+    Returns a success message or an error message if not found.
+    Additional Notes
+    Request Object: Contains information about the incoming request, such as query parameters and user information.
+    Eloquent Query Builder: Used to build complex database queries. Methods like where, when, orderBy, and paginate allow for conditional logic, sorting, and pagination.
+    Resources: The TranscriptionResource class formats the transcription data for the response.
+    Error Handling: The code includes error handling, with detailed error messages and appropriate HTTP status codes.
+    Localization: Uses the __ function to translate error messages, allowing for different languages.
+    Traits: The TranscriptionTrait trait is likely where reusable methods like transcriptionStore and transcriptionUpdate are defined, although it's not shown in the code.
+    Conclusion
+    This class forms the core of a CRUD (Create, Read, Update, Delete) API for managing transcriptions in a Laravel application. It makes extensive use of Laravel's features to provide a flexible, robust interface for interacting with transcriptions, taking advantage of Eloquent for database interactions, request validation for input checking, and resources for response formatting.
+
+*/

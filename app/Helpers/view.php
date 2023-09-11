@@ -65,3 +65,16 @@ function wordCount($word)
 
     return 1;
 }
+
+/*
+    categoryColor($name): This function takes a category name as input and returns a corresponding color string based on predefined categories. For example, 'content' returns 'success', 'website' returns 'danger', etc. If the category name does not match any of the predefined cases, the function returns void.
+
+    encodeQuill($input): This function is designed to encode input for display in a Quill text editor. It wraps the input text in <p> tags and replaces double line breaks (\n\n) with a paragraph break (<p><br></p>).
+
+    wordsCount($text): This function calculates the total word count for a given text input. It splits the text into words, disregards any non-word characters, and then counts the words using the wordCount function. It returns the rounded word count.
+
+    wordCount($word): This function takes a single word as input and returns its word count based on a symbol-to-word ratio defined in the configuration under completions.ratios. It uses regular expressions to match the word against defined scripts and multiplies the length of the word by the corresponding ratio value. If no match is found, it returns 1.
+
+    Overall, these functions could be used in various contexts, such as categorizing content, formatting text for a rich text editor, and analyzing text for word count based on specific rules.
+
+*/

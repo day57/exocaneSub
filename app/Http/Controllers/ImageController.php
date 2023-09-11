@@ -164,3 +164,40 @@ class ImageController extends Controller
         return redirect()->route('images')->with('success', __(':name has been deleted.', ['name' => $image->name]));
     }
 }
+
+
+/*
+
+    The ImageController class is responsible for handling various CRUD operations (Create, Read, Update, Delete) related to images in a Laravel application. It also utilizes an ImageTrait for some functionalities. Below is an overview of the key methods in this controller:
+
+    index(Request $request)
+    Lists all the images for the logged-in user. It supports multiple filters and search options:
+
+    Search: Allows searching for images by name.
+    Resolution, Style, Medium, Filter, Favorite: Allows filtering images by resolution, style, medium, filter, or favorite status.
+    Sorting and Pagination: Supports ordering by ID or name in ascending or descending order and allows specifying the number of items per page.
+    create()
+    Shows the form to create a new image.
+
+    edit(Request $request, $id)
+    Displays the edit form for a specific image by its ID and ensures that the logged-in user is the owner of the image.
+
+    show(Request $request, $id)
+    Displays a specific image by its ID. It ensures that the user has the right permission to view the image, aborting with a 403 error if not.
+
+    store(StoreImageRequest $request)
+    Handles the storing of a new image. The method accepts a validated request and calls a method from the ImageTrait to perform the actual storing. In case of an error, it redirects back with an error message.
+
+    update(UpdateImageRequest $request, $id)
+    Updates an existing image identified by its ID. It checks that the logged-in user is the owner of the image and calls a method from the ImageTrait to perform the actual update. Upon success, it redirects back with a success message.
+
+    processShow(UpdateTemplateRequest $request, $id)
+    Processes a specific template by its ID, updating its attributes. It ensures that the logged-in user is the owner of the template and calls a method to perform the actual update. Upon success, it redirects back with a success message.
+
+    destroy(Request $request, $id)
+    Deletes a specific image by its ID, ensuring that the logged-in user is the owner of the image. It performs the deletion and redirects to the images route with a success message.
+
+    Summary
+    The ImageController class encapsulates the logic required to handle image management in the application. It provides features to list, create, edit, view, store, update, process, and delete images, offering a clean and structured way to manage images. It also makes use of Laravel's conditional query building and validation to create a robust and flexible controller.
+
+*/

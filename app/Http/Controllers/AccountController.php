@@ -322,3 +322,11 @@ class AccountController extends Controller
         return redirect()->route('home');
     }
 }
+
+
+/*
+
+This controller is responsible for handling various actions related to user accounts, including displaying and updating profile information, managing email confirmation,
+handling security and preferences, working with subscriptions and plans, listing and editing payments, displaying invoices, managing API settings, and deleting user accounts.
+
+*/
